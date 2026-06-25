@@ -7,5 +7,9 @@
 </head>
 <body>
     <h1>Tout les publications</h1>
+
+    @foreach($posts as $post)
+    <p>{{$post->content}}</p>
+    @endforeach
 </body>
 </html>
