@@ -13,5 +13,10 @@
    
     <p>{{$post->content}}</p>
     @endforeach
+
+    <img
+    src="{{ asset($post->user->image_url) }}"
+    alt="Photo de profil"
+    class="w-16 h-16 rounded-full object-cover border border-gray-300">
 </body>
 </html>
