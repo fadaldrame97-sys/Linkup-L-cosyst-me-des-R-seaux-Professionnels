@@ -9,6 +9,7 @@
     <h1>Tout les publications</h1>
 
     @foreach($posts as $post)
+    <h3>{{$post->user->name}}</h3>
     <p>{{$post->content}}</p>
     @endforeach
 </body>
