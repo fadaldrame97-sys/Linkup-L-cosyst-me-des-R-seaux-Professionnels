@@ -11,8 +11,8 @@ class AuthController extends Controller
 {
     public function showRegisterForm(){
 
-        //return view('auth.register');
-         return 'OK';
+        return view('auth.register');
+         //return 'OK';
 
     }
 
@@ -22,8 +22,10 @@ class AuthController extends Controller
 
     }
 
-   // public function register(RegisterRequest $request)
-   // {
- //   $data = $request->validated();
+    public function register(RegisterRequest $request)
+    {
+    $data = $request->validated();
+
+   dd($request->validated());
     }
-//}
+    }

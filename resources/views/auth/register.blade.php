@@ -19,6 +19,10 @@
                 name="name"
                 class="w-full border p-2 rounded"
                 value="{{ old('name') }}">
+
+                @error('name')
+                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
         </div>
 
         <div class="mb-4">
@@ -28,16 +32,13 @@
                 name="email"
                 class="w-full border p-2 rounded"
                 value="{{ old('email') }}">
+
+                 @error('email')
+                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
         </div>
 
-        <div class="mb-4">
-            <label>Headline</label>
-            <input
-                type="text"
-                name="headline"
-                class="w-full border p-2 rounded"
-                value="{{ old('headline') }}">
-        </div>
+      
 
         <div class="mb-4">
             <label>Mot de passe</label>
@@ -45,6 +46,10 @@
                 type="password"
                 name="password"
                 class="w-full border p-2 rounded">
+
+                 @error('password')
+                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
         </div>
 
         <div class="mb-6">
@@ -53,6 +58,10 @@
                 type="password"
                 name="password_confirmation"
                 class="w-full border p-2 rounded">
+
+                 @error('password')
+                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
         </div>
 
         <button
@@ -60,6 +69,8 @@
             class="bg-blue-600 text-white px-4 py-2 rounded w-full">
             S'inscrire
         </button>
+
+      
 
     </form>
 
