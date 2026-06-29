@@ -26,6 +26,8 @@ class AuthController extends Controller
     {
     $data = $request->validated();
 
-   dd($request->validated());
+   //dd($request->validated());
+
+     return redirect()->route('register.form')->with('success','Inscription réuissi');
     }
     }
