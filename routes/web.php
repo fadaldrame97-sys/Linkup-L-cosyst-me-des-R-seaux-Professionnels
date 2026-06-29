@@ -12,4 +12,5 @@ Route::get('/feed',[PostController::class,'index'])
 ->name('feed');
 
 Route::get('/register',[AuthController::class,'showRegisterForm'])->name('register.form');
+Route::post('/register', [AuthController::class, 'register']);
 Route::get('/login',[AuthController::class,'showLoginForm'])->name('login.form');
