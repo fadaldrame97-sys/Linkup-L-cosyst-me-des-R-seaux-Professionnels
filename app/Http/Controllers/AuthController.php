@@ -25,6 +25,18 @@ class AuthController extends Controller
 
     }
 
+    public function loginUser(RegisterRequest $request){
+
+        $validate=$request->validate(  
+         rules:[
+           
+            'email' => ['required', 'email', 'unique:users,email'],
+        
+            'password' => ['required', 'confirmed', 'min:8'],
+        ]);
+
+    }
+
     public function register(RegisterRequest $request)
     {
     $data = $request->validated(
@@ -34,12 +46,12 @@ class AuthController extends Controller
 
    //dd($request->validated());
 
-     return redirect()->route('register.form')->with('success','Inscription réuissi');
+     //return redirect()->route('register.form')->with('success','Inscription réuissi');
     
     $user=User::create(attributes: [
         'name'=>$data['name'],
         'email'=>$data['email'],
-        'password'=>Hash::make(value:$data['password'])
+        'password' => $data['password'],
 
     ]);
       auth()->login($user);
