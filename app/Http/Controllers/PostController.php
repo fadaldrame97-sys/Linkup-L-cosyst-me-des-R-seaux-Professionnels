@@ -16,12 +16,12 @@ class PostController extends Controller
     return view('feed',compact('posts'));
  }
 
- public function store(request $request){
+ public function store(Request $request){
      $data=$request->validate([
-      'content'=>['require','string,max:1000']
+      'content'=>['required|string|max:1000']
      ]);
 
-     post::create([
+     Post::create([
       'content'=>$data['content'], 'user_id'=>Auth::id()
      ]);
      
