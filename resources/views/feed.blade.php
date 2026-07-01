@@ -21,6 +21,20 @@
 
 </div>
 
+<form action="{{ route('posts.store') }}" method="POST">
+    @csrf
+
+    <textarea
+        name="content"
+        class="w-full border rounded p-2"
+        placeholder="Exprimez-vous..."></textarea>
+
+    <button
+        class="bg-blue-600 text-white px-4 py-2 rounded mt-2">
+        Publier
+    </button>
+</form>
+
 @endforeach
 
 @endsection
