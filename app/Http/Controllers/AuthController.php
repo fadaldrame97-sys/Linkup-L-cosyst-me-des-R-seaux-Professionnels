@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Hash;
 
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+
 
 class AuthController extends Controller
 {
@@ -31,7 +33,7 @@ class AuthController extends Controller
         $user = User::create([
             'name'     => $data['name'],
             'email'    => $data['email'],
-            'password' => $data['password'], 
+            'password' => Hash::make($data['password']),
         ]);
 
        
