@@ -8,7 +8,7 @@
         Créer un compte
     </h2>
 
-    <form action="{{ route('register') }}" method="POST">
+   <form action="{{ route('login') }}" method="POST">
 
         @csrf
 
@@ -21,6 +21,11 @@
                 name="email"
                 class="w-full border p-2 rounded"
                 value="{{ old('email') }}">
+
+                
+                @error('email')
+                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
         </div>
 
        
@@ -31,6 +36,11 @@
                 type="password"
                 name="password"
                 class="w-full border p-2 rounded">
+
+                
+                @error('password')
+                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
         </div>
 
        
