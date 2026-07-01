@@ -19,6 +19,10 @@
 
     <p>{{ $post->content }}</p>
 
+    <a href="{{ route('posts.edit', $post) }}">
+    Modifier
+    </a>
+
 </div>
 
 

@@ -27,4 +27,9 @@ class PostController extends Controller
      
      return redirect()->route('feed') ->with('success', 'Publication créée avec succès.');
  }
+
+ public function edit(){
+   
+     return view('posts.edit', compact('post'));
+ }
 }

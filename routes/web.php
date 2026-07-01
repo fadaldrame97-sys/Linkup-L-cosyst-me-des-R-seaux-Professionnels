@@ -18,5 +18,7 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 // Logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::post('/posts', [PostController::class, 'store'])
-    ->name('posts.store');
+Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+
+
+Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
