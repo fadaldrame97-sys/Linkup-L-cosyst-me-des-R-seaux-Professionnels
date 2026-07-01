@@ -21,6 +21,9 @@
 
 </div>
 
+
+@endforeach
+
 <form action="{{ route('posts.store') }}" method="POST">
     @csrf
 
@@ -35,6 +38,5 @@
     </button>
 </form>
 
-@endforeach
 
 @endsection
