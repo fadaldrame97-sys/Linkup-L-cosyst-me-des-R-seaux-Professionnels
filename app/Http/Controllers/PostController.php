@@ -18,18 +18,33 @@ class PostController extends Controller
 
  public function store(Request $request){
      $data=$request->validate([
-        'content' => ['required', 'string', 'max:1000'],
+        'content' => ['required', 'string', 'max:1000']
      ]);
 
      Post::create([
-      'content'=>$data['content'], 'user_id'=>Auth::id()
+      'content'=>$data['content'],
+       'user_id'=>Auth::id()
      ]);
      
      return redirect()->route('feed') ->with('success', 'Publication créée avec succès.');
  }
 
- public function edit(){
-   
-     return view('posts.edit', compact('post'));
+ public function edit($id){
+
+     $post=Post::findOrFail($id);
+
+      return view('posts.edit', compact('post'));
  }
+
+  public function update(Request $request, $id){
+      $data=$request->validate([
+      'content'=>['required','string','max:1000']
+     ]);
+
+      $post=Post::findOrFail($id);
+      $post->update([
+         'content'=>$data['content'],
+      ]);
+      return redirect()->route('feed')->with('success','Publication a été modifiée');
+  }
 }
