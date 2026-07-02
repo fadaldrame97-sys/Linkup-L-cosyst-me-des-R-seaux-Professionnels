@@ -23,7 +23,21 @@
     Modifier
     </a>
 
+
+    <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
+
+    @csrf
+    @method('DELETE')
+
+    <button type="submit">
+        Supprimer
+    </button>
+
+</form>
+
 </div>
+
+
 
 
 @endforeach
@@ -41,6 +55,7 @@
         Publier
     </button>
 </form>
+
 
 
 
