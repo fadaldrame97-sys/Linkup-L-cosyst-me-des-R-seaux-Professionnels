@@ -47,4 +47,11 @@ class PostController extends Controller
       ]);
       return redirect()->route('feed')->with('success','Publication a été modifiée');
   }
+
+  public function destroy($id){
+     $post=Post::findOrFail($id);
+     $post->delete();
+
+     return redirect()->route('feed')->with('success','Votre publication a été supprimé');
+  }
 }
