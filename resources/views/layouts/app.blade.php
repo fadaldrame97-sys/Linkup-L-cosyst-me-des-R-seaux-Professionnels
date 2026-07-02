@@ -30,6 +30,16 @@
                 <a href="{{ route('register.form') }}" class="hover:underline">
                     Inscription
                 </a>
+                <form action="{{ route('logout') }}" method="POST" class="inline">
+    @csrf
+    <button
+        type="submit"
+        class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+        Déconnexion
+    </button>
+</form>
+
+
             </div>
         </div>
     </nav>
