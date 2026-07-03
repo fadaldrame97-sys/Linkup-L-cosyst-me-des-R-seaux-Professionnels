@@ -33,6 +33,8 @@ class PostController extends Controller
 
      $post=Post::findOrFail($id);
 
+     $this->authorize('update', $post);
+
       return view('posts.edit', compact('post'));
  }
 
@@ -42,7 +44,10 @@ class PostController extends Controller
      ]);
 
       $post=Post::findOrFail($id);
+
+      $this->authorize('update', $post);
       $post->update([
+
          'content'=>$data['content'],
       ]);
       return redirect()->route('feed')->with('success','Publication a été modifiée');
@@ -50,6 +55,8 @@ class PostController extends Controller
 
   public function destroy($id){
      $post=Post::findOrFail($id);
+
+     $this->authorize('delete', $post);
      $post->delete();
 
      return redirect()->route('feed')->with('success','Votre publication a été supprimé');
