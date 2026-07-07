@@ -35,6 +35,8 @@ Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.de
 
 Route::post('/posts/{post}/comments',[CommentController::class,'store'])->name('comments.store');
 
+Route::delete('/comments/{id}', [CommentController::class, 'destroy'])->name('comments.destroy');
+
 });
 
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register.form');

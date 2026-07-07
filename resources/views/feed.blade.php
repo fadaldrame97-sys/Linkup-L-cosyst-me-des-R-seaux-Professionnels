@@ -60,10 +60,29 @@
     <STrong> {{ $comment->user->name}}</STrong>
     <p>{{ $comment->content}}</p>
     </div>
+
+
+     @can('delete', $comment)
+
+<form action="{{ route('comments.destroy',$comment->id) }}" method="POST">
+    @csrf
+
+    @method('DELETE')
+
+    <button type="submit">
+        Supprimer le commentaire
+    </button>
+
+
+</form>
+
+@endcan
+
+
+    
+    
   @endforeach
 </div>
-
-
 
 
 @endforeach
