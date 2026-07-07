@@ -35,6 +35,20 @@
 
 </form>
 
+   <form action="{{ route('comments.store',$post) }}" method="POST">
+    @csrf
+   <textarea name="content" rows="2" placeholder="Ecrire un commentaire">{{ old('content') }}</textarea>
+    
+
+   @error('content')
+    <p class="text-red-500 text-sm mt-1">
+        {{ $message }}
+    </p>
+   @enderror
+
+
+   <button type="submit">Commenter</button>
+</form>
 </div>
 
 
