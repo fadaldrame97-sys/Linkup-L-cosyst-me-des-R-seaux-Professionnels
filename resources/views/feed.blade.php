@@ -4,6 +4,8 @@
 
 <h1 class="text-2xl font-bold mb-6">Toutes les publications</h1>
 
+
+
 @foreach($posts as $post)
 
 <div class="bg-white p-4 rounded-lg shadow mb-4">
@@ -48,7 +50,16 @@
 
 
    <button type="submit">Commenter</button>
+
+
 </form>
+
+   @foreach ($post->comments as $comment )
+    <div>
+    <STrong> {{ $comment->user->name}}</STrong>
+    <p>{{ $comment->content}}</p>
+    </div>
+  @endforeach
 </div>
 
 
