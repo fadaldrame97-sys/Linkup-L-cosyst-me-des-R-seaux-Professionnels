@@ -55,7 +55,8 @@
 </form>
 
    @foreach ($post->comments as $comment )
-    <div>
+    <div class="mt-2 ml-4 border-l-2 pl-3">
+
     <STrong> {{ $comment->user->name}}</STrong>
     <p>{{ $comment->content}}</p>
     </div>

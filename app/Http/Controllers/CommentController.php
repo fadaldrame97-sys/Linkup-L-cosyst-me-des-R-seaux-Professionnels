@@ -23,4 +23,13 @@ class CommentController extends Controller
      return redirect()->route('feed');
  }
 
+  public function destroy($id){
+     $comment=comment::findOrFail($id);
+
+     $this->authorize('delete', $comment);
+     $comment->delete();
+
+     return redirect()->route('feed');
+  }
+
 }
