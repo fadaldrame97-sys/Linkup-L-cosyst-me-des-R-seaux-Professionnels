@@ -11,6 +11,9 @@ use App\Models\Post;
 class PostController extends Controller
 {
  public function index (){
+
+
+
     $posts=Post::with(['user','comments.user'])->latest()->get();
 
     return view('feed',compact('posts'));
@@ -61,4 +64,14 @@ class PostController extends Controller
 
      return redirect()->route('feed')->with('success','Votre publication a été supprimé');
   }
+
+
+
+    
+
+      
+
+
+
+  
 }
