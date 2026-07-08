@@ -19,10 +19,10 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function likedPosts()
-    {
-    return $this->belongsToMany(Post::class, 'likes');
-   }
+   public function likedByUsers()
+{
+    return $this->belongsToMany(User::class, 'likes');
+}
 
 
 }

@@ -53,6 +53,17 @@
 
 
 </form>
+<form action="{{ route('posts.like', $post) }}" method="POST">
+
+    @csrf
+
+    <button type="submit" class="text-red-500 font-semibold">
+
+        ❤️ {{ $post->likedByUsers()->count() }} Likes
+
+    </button>
+
+</form>
 
    @foreach ($post->comments as $comment )
     <div class="mt-2 ml-4 border-l-2 pl-3">
@@ -77,6 +88,7 @@
 </form>
 
 @endcan
+
 
 
     
