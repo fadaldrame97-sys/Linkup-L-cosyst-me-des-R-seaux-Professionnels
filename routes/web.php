@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
+
+
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
@@ -38,6 +41,13 @@ Route::post('/posts/{post}/comments',[CommentController::class,'store'])->name('
 
 Route::delete('/comments/{id}', [CommentController::class, 'destroy'])->name('comments.destroy');
 Route::post('/posts/{post}/like', [LikeController::class, 'toggle'])->name('posts.like');
+
+
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+
+Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+
+Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
 
 });
 

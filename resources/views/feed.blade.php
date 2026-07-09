@@ -14,8 +14,20 @@
         src="{{ asset($post->user->image_url) }}"
         alt="Photo de profil"
         class="w-20 h-20 rounded-full object-cover border border-gray-300">
+     
+@if(Auth::id() == $post->user->id)
 
-    <h3 class="font-bold">{{ $post->user->name }}</h3>
+<a href="{{ route('profile.show') }}" class="font-bold text-blue-600">
+    {{ $post->user->name }}
+</a>
+
+@else
+
+<span class="font-bold">
+    {{ $post->user->name }}
+</span>
+
+@endif
 
     <p class="text-gray-500">{{ $post->user->headline }}</p>
 
