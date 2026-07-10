@@ -14,7 +14,10 @@ class NetworkController extends Controller
     {
         if(Auth::id()==$user->id)  return redirect()->route('feed');
 
-        
+        if(Auth::user()->following()->contains($user->id)){
+            Auth::user()->following()->detach($user->id);
+
+        }
     }
     
 }
