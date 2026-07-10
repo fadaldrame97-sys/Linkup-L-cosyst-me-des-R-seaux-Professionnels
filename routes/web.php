@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\NetworkController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -48,6 +49,9 @@ Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.e
 Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+
+
+Route::post('/users/{user}/follow', [NetworkController::class, 'toggle'])->name('users.follow');
 
 });
 
